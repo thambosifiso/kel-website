@@ -15,46 +15,23 @@
         <p class="lead">Create an account or log in to access the client area.</p>
 
         <div class="form">
-          <!-- NAME -->
-          <input
-            class="input"
-            id="firstName"
-            type="text"
-            placeholder="First Name"
-            required
-          />
 
-          <input
-            class="input"
-            id="lastName"
-            type="text"
-            placeholder="Surname"
-            required
-          />
+          <!-- ✅ REQUIRED FOR CREATE ACCOUNT -->
+          <input class="input" id="firstName" type="text" placeholder="First Name" />
+          <input class="input" id="lastName" type="text" placeholder="Surname" />
 
           <!-- EMAIL -->
-          <input
-            class="input"
-            id="email"
-            type="email"
-            placeholder="Email Address"
-            required
-          />
+          <input class="input" id="email" type="email" placeholder="Email Address" required />
 
           <!-- PASSWORD -->
-          <input
-            class="input"
-            id="password"
-            type="password"
-            placeholder="Password (min 8 chars, upper, lower, number, symbol)"
-            required
-          />
+          <input class="input" id="password" type="password"
+            placeholder="Password (min 8 chars, upper, lower, number, symbol)" required />
 
           <button class="btn primary" onclick="login()">Login</button>
           <button class="btn ghost" onclick="signup()">Create Account</button>
 
           <small style="color:var(--muted); line-height:1.6;">
-            Password must be at least 8 characters and include upper, lower, number & symbol.
+            Creating an account requires First Name + Surname.
           </small>
         </div>
 
@@ -65,7 +42,6 @@
     </div>
   </main>
 
-  <!-- IMPORTANT: only ONE script -->
   <script type="module" src="auth.js"></script>
 </body>
 </html>
