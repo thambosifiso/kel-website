@@ -6,22 +6,55 @@
   <title>Client Login | KEL</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <main class="section">
     <div class="container" style="max-width:520px;">
       <div class="card">
         <h3>Client Login</h3>
-        <p class="lead">Login or create an account to access the client area.</p>
+        <p class="lead">Create an account or log in to access the client area.</p>
 
         <div class="form">
-          <input class="input" id="email" type="email" placeholder="Email" required />
-          <input class="input" id="password" type="password" placeholder="Password (min 6 chars)" required />
+          <!-- NAME -->
+          <input
+            class="input"
+            id="firstName"
+            type="text"
+            placeholder="First Name"
+            required
+          />
+
+          <input
+            class="input"
+            id="lastName"
+            type="text"
+            placeholder="Surname"
+            required
+          />
+
+          <!-- EMAIL -->
+          <input
+            class="input"
+            id="email"
+            type="email"
+            placeholder="Email Address"
+            required
+          />
+
+          <!-- PASSWORD -->
+          <input
+            class="input"
+            id="password"
+            type="password"
+            placeholder="Password (min 8 chars, upper, lower, number, symbol)"
+            required
+          />
 
           <button class="btn primary" onclick="login()">Login</button>
           <button class="btn ghost" onclick="signup()">Create Account</button>
 
           <small style="color:var(--muted); line-height:1.6;">
-            Tip: If you forget your password, tell KEL on WhatsApp for assistance.
+            Password must be at least 8 characters and include upper, lower, number & symbol.
           </small>
         </div>
 
@@ -32,6 +65,7 @@
     </div>
   </main>
 
+  <!-- IMPORTANT: only ONE script -->
   <script type="module" src="auth.js"></script>
 </body>
 </html>
