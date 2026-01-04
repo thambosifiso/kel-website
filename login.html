@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Login | KEL</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="section">
+    <div class="container" style="max-width:520px;">
+      <div class="card">
+        <h3>Client Login</h3>
+        <p class="lead">Login or create an account to access the client area.</p>
+
+        <div class="form">
+          <input class="input" id="email" type="email" placeholder="Email" required />
+          <input class="input" id="password" type="password" placeholder="Password (min 6 chars)" required />
+
+          <button class="btn primary" onclick="login()">Login</button>
+          <button class="btn ghost" onclick="signup()">Create Account</button>
+
+          <small style="color:var(--muted); line-height:1.6;">
+            Tip: If you forget your password, tell KEL on WhatsApp for assistance.
+          </small>
+        </div>
+
+        <div style="margin-top:14px;">
+          <a class="btn ghost" href="index.html">Back to Website</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

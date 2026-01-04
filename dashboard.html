@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Area | KEL</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-protected="true">
+  <main class="section">
+    <div class="container">
+      <div class="card">
+        <h3>Client Area</h3>
+        <p class="lead">Welcome: <strong id="who">...</strong></p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>My Requests</h4>
+            <p>Coming soon: show quote requests, updates and job progress.</p>
+          </div>
+          <div class="card">
+            <h4>Documents</h4>
+            <p>Coming soon: invoices, compliance docs, service schedule.</p>
+          </div>
+          <div class="card">
+            <h4>Support</h4>
+            <p>Contact KEL fast via WhatsApp for help and updates.</p>
+            <a class="btn primary" href="https://wa.me/27768641645" target="_blank" rel="noopener">WhatsApp KEL</a>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn ghost" href="index.html">Back to Website</a>
+          <button class="btn primary" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
