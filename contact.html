@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Request a Quote | KEL</title>
+  <meta name="description" content="Contact KEL and request a quote for catering, mobile toilets, deep cleaning or a combined package." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge" aria-hidden="true"></div>
+      <div>
+        <h1>KEL Catering, Mobile Toilets & Deep Cleaning</h1>
+        <small>Complete operations support: food • hygiene • cleanliness</small>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="about.html">About</a>
+      <a href="catering.html">Catering</a>
+      <a href="mobile-toilets.html">Mobile Toilets</a>
+      <a href="deep-cleaning.html">Deep Cleaning</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn ghost" href="#quote">Request a Quote</a>
+      <a class="btn primary" href="#contact">WhatsApp / Call</a>
+    </div>
+    <button class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="mobilePanel">Menu</button>
+  </div>
+  <div class="container mobile-panel" id="mobilePanel" data-mobile-panel data-open="false">
+    <a href="about.html">About</a>
+    <a href="catering.html">Catering</a>
+    <a href="mobile-toilets.html">Mobile Toilets</a>
+    <a href="deep-cleaning.html">Deep Cleaning</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn primary" href="#quote" style="width:100%;">Request a Quote</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-title" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Call, WhatsApp, or send a quote request using the form below.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="card">
+        <h4>Direct contact</h4>
+
+        <div class="notice">
+          <strong>Phone</strong>
+          <span><a href="tel:+27768641645">076 864 1645</a></span>
+        </div>
+
+        <div class="notice" style="margin-top:12px;">
+          <strong>WhatsApp</strong>
+          <span>
+            <a href="https://wa.me/27768641645" target="_blank" rel="noopener">
+              Chat on WhatsApp
+            </a>
+          </span>
+        </div>
+
+        <div class="notice" style="margin-top:12px;">
+          <strong>Email</strong>
+          <span><a href="mailto:info@kel.co.za">info@kel.co.za</a></span>
+        </div>
+
+        <div class="notice" style="margin-top:12px;">
+          <strong>Operating areas</strong>
+          <span>Add towns/cities/provinces you cover.</span>
+        </div>
+      </div>
+
+      <div class="card" id="quote">
+        <h4>Request a Quote</h4>
+        <p class="lead">When you click “Send on WhatsApp”, WhatsApp opens with your message ready.</p>
+
+        <form class="form" id="quoteForm">
+          <input class="input" id="name" placeholder="Your Name" required />
+          <input class="input" id="phone" placeholder="Phone / WhatsApp Number" required />
+          <select class="input" id="service" required>
+            <option value="" disabled selected>Select Service</option>
+            <option>Catering</option>
+            <option>Mobile Toilets</option>
+            <option>Deep Cleaning</option>
+            <option>Combined Package (All)</option>
+          </select>
+          <input class="input" id="location" placeholder="Location (Site / Venue)" required />
+          <input class="input" id="date" placeholder="Date / Period Needed (e.g. 10–12 March)" />
+          <textarea class="input" id="message" placeholder="Details: quantities, headcount, servicing frequency, cleaning scope, etc." required></textarea>
+
+          <button class="btn primary" type="submit">Send on WhatsApp</button>
+
+          <small style="color:var(--muted); line-height:1.6;">
+            Tip: Add as much detail as possible so we can quote faster.
+          </small>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="gap:10px;">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>
+          <h1 style="font-size:14px; margin:0;">KEL Catering, Mobile Toilets & Deep Cleaning</h1>
+          <small>Food • Sanitation • Deep Cleaning</small>
+        </div>
+      </div>
+      <small style="margin-top:10px;">Fast response. Professional delivery.</small>
+    </div>
+    <div>
+      <strong>Quick Links</strong>
+      <small style="margin-top:10px;"><a href="index.html">Home</a><br/><a href="about.html">About</a><br/><a href="gallery.html">Gallery</a></small>
+    </div>
+    <div>
+      <strong>Services</strong>
+      <small style="margin-top:10px;"><a href="catering.html">Catering</a><br/><a href="mobile-toilets.html">Mobile Toilets</a><br/><a href="deep-cleaning.html">Deep Cleaning</a></small>
+    </div>
+  </div>
+  <div class="container" style="margin-top:18px;"><small>© <span id="year"></span> KEL. All rights reserved.</small></div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="floating-wa"
+   href="https://wa.me/27768641645?text=Hi%20KEL%2C%20I%20need%20a%20quote.%20Please%20assist."
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat with KEL on WhatsApp">
+  <div class="wa-dot" aria-hidden="true"></div>
+  <span>WhatsApp</span>
+</a>
+
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
