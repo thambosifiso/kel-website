@@ -1,47 +1,106 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Client Login | KEL</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Cleaning | KEL</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="section">
-    <div class="container" style="max-width:520px;">
-      <div class="card">
-        <h3>Client Login</h3>
-        <p class="lead">Create an account or log in to access the client area.</p>
 
-        <div class="form">
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">KEL</a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="catering.html">Catering</a>
+      <a href="mobile-toilets.html">Mobile Toilets</a>
+      <a class="active" href="deep-cleaning.html">Deep Cleaning</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Client Login</a>
+    </nav>
+  </div>
+</header>
 
-          <!-- ✅ REQUIRED FOR CREATE ACCOUNT -->
-          <input class="input" id="firstName" type="text" placeholder="First Name" />
-          <input class="input" id="lastName" type="text" placeholder="Surname" />
+<main>
 
-          <!-- EMAIL -->
-          <input class="input" id="email" type="email" placeholder="Email Address" required />
+<section class="section hero">
+  <div class="container">
+    <h1>Deep Cleaning Services</h1>
+    <p class="lead">
+      Professional industrial, commercial & outdoor deep cleaning
+      delivered by trained KEL teams.
+    </p>
+    <a href="contact.html" class="btn primary">Request a Quote</a>
+  </div>
+</section>
 
-          <!-- PASSWORD -->
-          <input class="input" id="password" type="password"
-            placeholder="Password (min 8 chars, upper, lower, number, symbol)" required />
+<section class="section">
+  <div class="container">
+    <h2>Real Deep Cleaning Work</h2>
+    <p class="lead">
+      Below are real projects completed by KEL Deep Cleaning teams.
+    </p>
 
-          <button class="btn primary" onclick="login()">Login</button>
-          <button class="btn ghost" onclick="signup()">Create Account</button>
+    <!-- IMAGE GRID -->
+    <div class="grid-3">
 
-          <small style="color:var(--muted); line-height:1.6;">
-            Creating an account requires First Name + Surname.
-          </small>
-        </div>
+      <!-- REPEATABLE IMAGE BLOCK -->
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep1.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep2.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep3.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep4.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep6.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep7.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep10.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep11.jpg"></div>
 
-        <div style="margin-top:14px;">
-          <a class="btn ghost" href="index.html">Back to Website</a>
-        </div>
-      </div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep12.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep13.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep14.jpg"></div>
+
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep15.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep16.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep17.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep20.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep21.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep22.jpg"></div>
+       <div class="card"><img class="media" src="assets/deep-cleaning/deep23.jpg"></div>
+      <div class="card"><img class="media" src="assets/deep-cleaning/deep24.jpg"></div>
+    
+
     </div>
-  </main>
 
-  <script type="module" src="auth.js"></script>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="section alt">
+  <div class="container">
+    <h2>Deep Cleaning in Action</h2>
+
+    <div class="card">
+      <video class="media" controls>
+        <source src="assets/deep-cleaning/deep5.mp4" type="video/mp4">
+         <source src="assets/deep-cleaning/deep8.mp4" type="video/mp4">
+         <source src="assets/deep-cleaning/deep9.mp4" type="video/mp4">
+         <source src="assets/deep-cleaning/deep18.mp4" type="video/mp4">
+         <source src="assets/deep-cleaning/deep19.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 KEL Catering, Mobile Toilets & Deep Cleaning</p>
+  </div>
+</footer>
+
 </body>
 </html>
