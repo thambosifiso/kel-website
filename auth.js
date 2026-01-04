@@ -1,4 +1,5 @@
-// auth.js (FINAL FIX for GitHub Pages)
+// auth.js — FINAL, CLEAN VERSION (GitHub Pages compatible)
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth,
@@ -6,9 +7,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// ✅ Your Firebase configuration (KEEP THESE VALUES)
+/* 🔐 FIREBASE CONFIG (YOUR REAL DETAILS) */
 const firebaseConfig = {
   apiKey: "AIzaSyC0V3HNsxGM8EqKmvaVoG78zF94QmWpvXE",
   authDomain: "kel-website.firebaseapp.com",
@@ -18,24 +20,53 @@ const firebaseConfig = {
   appId: "1:954488607948:web:7694ccb088374543895e69",
 };
 
-// ✅ Initialize Firebase ONCE (prevents double init issues)
+/* INIT FIREBASE SAFELY */
 const app = window.__kelFirebaseApp || (window.__kelFirebaseApp = initializeApp(firebaseConfig));
 const auth = getAuth(app);
 
-// helper for inputs
+/* HELPER */
 const $ = (id) => document.getElementById(id);
 
-// ✅ SIGN UP
+/* =======================
+   SIGN UP (WITH FULL VALIDATION)
+   ======================= */
 window.signup = async () => {
   try {
+    const firstName = $("firstName").value.trim();
+    const lastName = $("lastName").value.trim();
     const email = $("email").value.trim();
     const password = $("password").value;
 
-    if (!email || !password) return alert("Please enter email & password.");
-    if (password.length < 6) return alert("Password must be at least 6 characters.");
+    /* NAME VALIDATION */
+    if (!firstName) return alert("First name is required.");
+    if (!lastName) return alert("Surname is required.");
 
-    await createUserWithEmailAndPassword(auth, email, password);
-    alert("Account created! You are now logged in.");
+    /* EMAIL VALIDATION */
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) return alert("Email is required.");
+    if (!emailRegex.test(email)) return alert("Enter a valid email address.");
+
+    /* PASSWORD VALIDATION */
+    if (password.length < 8)
+      return alert("Password must be at least 8 characters.");
+    if (!/[A-Z]/.test(password))
+      return alert("Password must include an uppercase letter.");
+    if (!/[a-z]/.test(password))
+      return alert("Password must include a lowercase letter.");
+    if (!/[0-9]/.test(password))
+      return alert("Password must include a number.");
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password))
+      return alert("Password must include a special character.");
+
+    /* CREATE ACCOUNT */
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+    /* SAVE NAME + SURNAME */
+    await updateProfile(cred.user, {
+      displayName: `${firstName} ${lastName}`,
+    });
+
+    alert("Account created successfully!");
     window.location.href = "dashboard.html";
   } catch (err) {
     alert(err.message);
@@ -43,13 +74,16 @@ window.signup = async () => {
   }
 };
 
-// ✅ LOGIN
+/* =======================
+   LOGIN
+   ======================= */
 window.login = async () => {
   try {
     const email = $("email").value.trim();
     const password = $("password").value;
 
-    if (!email || !password) return alert("Please enter email & password.");
+    if (!email || !password)
+      return alert("Please enter email and password.");
 
     await signInWithEmailAndPassword(auth, email, password);
     window.location.href = "dashboard.html";
@@ -59,21 +93,25 @@ window.login = async () => {
   }
 };
 
-// ✅ LOGOUT
+/* =======================
+   LOGOUT
+   ======================= */
 window.logout = async () => {
-  try {
-    await signOut(auth);
-    window.location.href = "login.html";
-  } catch (err) {
-    console.error(err);
-  }
+  await signOut(auth);
+  window.location.href = "login.html";
 };
 
-// ✅ PROTECT PAGES + show logged-in email
+/* =======================
+   PAGE PROTECTION + DISPLAY NAME
+   ======================= */
 onAuthStateChanged(auth, (user) => {
   const protectedPage = document.body.dataset.protected === "true";
-  if (protectedPage && !user) window.location.href = "login.html";
+  if (protectedPage && !user) {
+    window.location.href = "login.html";
+  }
 
   const who = document.getElementById("who");
-  if (who) who.textContent = user ? user.email : "";
+  if (who && user) {
+    who.textContent = user.displayName || user.email;
+  }
 });
