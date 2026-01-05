@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin | KEL</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-protected="true">
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-badge"></div>
+      <div>
+        <h1>KEL</h1>
+        <small>Admin Dashboard</small>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a class="btn ghost" href="dashboard.html">Client View</a>
+      <button class="btn primary" onclick="logout()">Logout</button>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h3>All Quote Requests</h3>
+    <p class="lead">These are requests submitted from your website form.</p>
+
+    <div id="list" class="grid-3"></div>
+  </div>
+</section>
+
+<script type="module">
+  import "./auth.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC0V3HNsxGM8EqKmvaVoG78zF94QmWpvXE",
+    authDomain: "kel-website.firebaseapp.com",
+    projectId: "kel-website",
+    storageBucket: "kel-website.firebasestorage.app",
+    messagingSenderId: "954488607948",
+    appId: "1:954488607948:web:7694ccb088374543895e69",
+  };
+
+  const app = window.__kelFirebaseApp || (window.__kelFirebaseApp = initializeApp(firebaseConfig));
+  const db = getFirestore(app);
+
+  const list = document.getElementById("list");
+
+  async function load(){
+    list.innerHTML = "";
+    const q = query(collection(db, "requests"), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+
+    if (snap.empty){
+      list.innerHTML = `<div class="notice"><strong>No requests yet</strong><span>New requests will appear here.</span></div>`;
+      return;
+    }
+
+    snap.forEach(docu => {
+      const d = docu.data();
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h4>${d.service || "Service"} — ${d.fullName || ""}</h4>
+        <p>${d.details || ""}</p>
+        <div class="meta">
+          <span class="badge">${d.phone || ""}</span>
+          <span class="badge">${d.location || ""}</span>
+          <span class="badge">Status: ${d.status || "New"}</span>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  load();
+</script>
+
+</body>
+</html>

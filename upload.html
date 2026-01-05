@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upload Photos | KEL</title>
+  <meta name="description" content="Upload before and after photos for your KEL job." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-protected="true">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge" aria-hidden="true"></div>
+      <div>
+        <h1>KEL Catering, Mobile Toilets & Deep Cleaning</h1>
+        <small>Food • Hygiene • Deep Cleaning</small>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="about.html">About</a>
+      <a href="catering.html">Catering</a>
+      <a href="mobile-toilets.html">Mobile Toilets</a>
+      <a href="deep-cleaning.html">Deep Cleaning</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Client Login</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn ghost" href="dashboard.html">Dashboard</a>
+      <button class="btn primary" onclick="logout()">Logout</button>
+    </div>
+
+    <button class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="mobilePanel">Menu</button>
+  </div>
+
+  <div class="container mobile-panel" id="mobilePanel" data-mobile-panel data-open="false">
+    <a href="about.html">About</a>
+    <a href="catering.html">Catering</a>
+    <a href="mobile-toilets.html">Mobile Toilets</a>
+    <a href="deep-cleaning.html">Deep Cleaning</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Client Login</a>
+    <a class="btn ghost" href="dashboard.html" style="width:100%;">Dashboard</a>
+    <button class="btn primary" onclick="logout()" style="width:100%;">Logout</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-title">
+    <div class="container">
+      <h2>Upload Photos</h2>
+      <p>Upload before/after photos for your job. (You must be logged in.)</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="card">
+        <h4>Logged in as</h4>
+        <p class="lead"><strong id="who">...</strong></p>
+
+        <div class="notice">
+          <strong>Tip</strong>
+          <span>Use clear photos. If possible, upload “Before” and “After”.</span>
+        </div>
+
+        <div class="notice" style="margin-top:12px;">
+          <strong>Allowed</strong>
+          <span>Images only (JPG/PNG/WebP). You can select multiple files.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Upload Form</h4>
+        <p class="lead">Files are stored securely and linked to your account.</p>
+
+        <form class="form" id="uploadForm">
+          <input class="input" id="jobRef" placeholder="Job Reference (optional)" />
+          <select class="input" id="photoType">
+            <option value="Before">Before</option>
+            <option value="After">After</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input class="input" id="files" type="file" accept="image/*" multiple required />
+
+          <button class="btn primary" type="submit">Upload Now</button>
+
+          <div id="statusBox" class="notice" style="display:none;"></div>
+
+          <small style="color:var(--muted); line-height:1.6;">
+            If upload fails, please refresh and try again.
+          </small>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="gap:10px;">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>
+          <h1 style="font-size:14px; margin:0;">KEL Catering, Mobile Toilets & Deep Cleaning</h1>
+          <small>Food • Sanitation • Deep Cleaning</small>
+        </div>
+      </div>
+      <small style="margin-top:10px;">Secure uploads. Professional service.</small>
+    </div>
+    <div>
+      <strong>Quick Links</strong>
+      <small style="margin-top:10px;">
+        <a href="index.html">Home</a><br/>
+        <a href="dashboard.html">Dashboard</a><br/>
+        <a href="contact.html">Request a Quote</a>
+      </small>
+    </div>
+    <div>
+      <strong>Support</strong>
+      <small style="margin-top:10px;">
+        <a href="https://wa.me/27768641645" target="_blank" rel="noopener">WhatsApp: 076 864 1645</a>
+      </small>
+    </div>
+  </div>
+  <div class="container" style="margin-top:18px;"><small>© <span id="year"></span> KEL. All rights reserved.</small></div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<!-- ✅ Upload logic -->
+<script type="module" src="upload-firebase.js"></script>
+</body>
+</html>
